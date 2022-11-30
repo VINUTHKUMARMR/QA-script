@@ -1,0 +1,25 @@
+pipeline{
+agent any
+tools{
+maven 'maven'
+}
+stages{
+stage('clone'){
+steps{
+sh '''
+sudo install maven
+'''
+git url:'https://github.com/VINUTHKUMARMR/java.git'
+stash 'source'
+}
+}
+stage('build'){
+steps{
+unstash 'source'
+sh '''
+maven clean install
+'''
+}
+}
+}
+}
