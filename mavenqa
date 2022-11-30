@@ -21,9 +21,9 @@ stash 'source'
 stage('build'){
 steps{
 unstash 'source'
-sh '
+sh '''
 maven clean install
-'
+'''
 }
 }
 }
