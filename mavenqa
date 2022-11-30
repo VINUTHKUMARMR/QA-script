@@ -5,12 +5,14 @@ maven 'maven'
 }
 stages{
 stage('clone'){
+agent {label 'agent1'}
 steps{
 git url:'https://github.com/VINUTHKUMARMR/java.git'
 stash 'source'
 }
 }
 stage('build'){
+agent {label 'agent1'}
 steps{
 unstash 'source'
 sh '''
