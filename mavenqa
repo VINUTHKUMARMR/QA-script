@@ -4,11 +4,16 @@ tools{
 maven 'maven'
 }
 stages{
-stage('clone'){
+
+stage('maven install'){
 steps{
 sh '''
-sudo install maven
+sudo apt install maven
 '''
+}
+}
+stage('clone'){
+steps{
 git url:'https://github.com/VINUTHKUMARMR/java.git'
 stash 'source'
 }
