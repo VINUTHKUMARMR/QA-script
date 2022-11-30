@@ -22,7 +22,7 @@ stage('build'){
 steps{
 unstash 'source'
 sh '''
-maven clean install
+mvn clean install
 '''
 }
 }
